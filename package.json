@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test:html",
+    "test": "npm run test:html &&  npm run test:js",
     "test:html": "glob-run nu-html-checker *.html",
+    "test:js": "jshint *.html",
     "init-project": "npm run init:dirs && npm run init:files && npm run init:gitignore && npm run init:npm-install",
     "init:dirs": "mkdir -p sass css vendor images js",
     "init:files": "touch README.md index.html sass/style.scss js/script.js",
@@ -19,7 +20,7 @@
     "watch": "parallelshell \"npm run watch:sass\" \"npm run watch:autoprefixer\" \"npm run watch:browsersync\" ",
     "watch:sass": "node-sass --output-style expanded --source-map true -o css sass --watch",
     "watch:autoprefixer": "onchange -d 100 css/style.css -- autoprefixer-cli -o css/style.prefixed.css css/style.css",
-    "watch:browsersync": "./node_modules/.bin/browser-sync start --server --files \"css/*.css\" \"*.html\" "
+    "watch:browsersync": "browser-sync start --server --files \"css/*.css\" \"*.html\" "
   },
   "keywords": [],
   "author": "",
@@ -28,9 +29,20 @@
     "autoprefixer-cli": "^1.0.0",
     "browser-sync": "^2.18.13",
     "glob-run": "^0.1.6",
+    "jshint": "^2.9.5",
+    "minimatch": "^3.0.4",
     "node-sass": "^4.7.2",
     "nu-html-checker": "^0.1.0",
     "onchange": "^3.3.0",
     "parallelshell": "^3.0.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miszczumijagi/zadanie_8_3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/miszczumijagi/zadanie_8_3/issues"
+  },
+  "homepage": "https://github.com/miszczumijagi/zadanie_8_3#readme"
 }
